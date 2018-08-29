@@ -3,13 +3,13 @@ Rails.application.routes.draw do
   # verb "/urls" => "namespace/controllers#action"
 
   namespace :api do
-    get "/products" => "products#products_method"
+    get "/products_url" => "products#products_method"
 
-    get "/product1" => "products#first_product_method"
+    get "/product1_url" => "products#first_product_method"
 
-    get "/product2" => "products#second_product_method"
+    get "/product2_url" => "products#second_product_method"
 
-    get "/product3" => "products#third_product_method"
+    get "/product3_url" => "products#third_product_method"
 
   end
 
