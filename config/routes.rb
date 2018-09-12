@@ -14,6 +14,17 @@ Rails.application.routes.draw do
     #destroys product
     delete "/products/:id" => "products#destroy"
 
+     #dispalys all products 
+    get "/suppliers" => "suppliers#index"
+    #shows single product
+    get "/suppliers/:id" => "suppliers#show"
+    #creates prodcut
+    post "/suppliers/" => "suppliers#create"
+    #updates prodcut
+    patch "/suppliers/:id" => "suppliers#update"
+    #destroys product
+    delete "/suppliers/:id" => "suppliers#destroy"
+
     # get "/product1_url" => "products#first_product_method"
 
     # get "/product2_url" => "products#second_product_method"
