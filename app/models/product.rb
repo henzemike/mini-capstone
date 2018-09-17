@@ -3,7 +3,7 @@ class Product < ApplicationRecord
   # def supplier 
   #   Supplier.find_by(id: Supplier_id)
   # end
-
+  has_many :category_poducts 
   belongs_to :Supplier # return a supplier hash
   has_many :images
   has_many :orders 
