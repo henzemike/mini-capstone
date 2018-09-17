@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     #shows single product
     get "/products/:id" => "products#show"
     #creates prodcut
-    post "/products/" => "products#create"
+    post "/products" => "products#create"
     #updates prodcut
     patch "/products/:id" => "products#update"
     #destroys product
@@ -25,11 +25,13 @@ Rails.application.routes.draw do
     #destroys product
     delete "/suppliers/:id" => "suppliers#destroy"
 
-    # get "/product1_url" => "products#first_product_method"
+    post "/users" => "users#create"
 
-    # get "/product2_url" => "products#second_product_method"
+    post "/sessions" => "sessions#create"
 
-    # get "/product3_url" => "products#third_product_method"
+    post "/orders" => "orders#create"
+
+    get "orders" => "orders#index"
 
     # query selector method
     get "/product_select" => "products#select_product_method"

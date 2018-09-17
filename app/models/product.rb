@@ -1,13 +1,19 @@
 class Product < ApplicationRecord
 
+  # def supplier 
+  #   Supplier.find_by(id: Supplier_id)
+  # end
+
+  belongs_to :Supplier # return a supplier hash
+  has_many :images
+  has_many :orders 
+
   validates :name, length: { maximum: 40 }
   validates :name, uniqueness: true
   validates :name, presence: true
 
   validates :price, numericality: true
   validates :price, numericality: { greater_than: 0 }
-
-  validates :image_url, presence: true
 
 
   validates :description, length: { in: 6..500 }

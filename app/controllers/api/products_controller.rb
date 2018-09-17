@@ -1,5 +1,7 @@
 class Api::ProductsController < ApplicationController
 
+  before_action :authenticate_admin, except: [:index, :show]
+
     def index
 
       @products = Product.all
@@ -42,11 +44,10 @@ class Api::ProductsController < ApplicationController
       @product = Product.create(
         name: params[:name],
         price: params[:price],
-        image_url: params[:image_url],
-        description: params[:description],
+        description: params[:description]
       )
 
-      if prodcut.save # happy path
+      if @prodcut.save # happy path
         render "show.json.jbuilder"
       else # sad path
         render json: { errors: @product.errors.full_messages }, status: :unprocessable_entity
@@ -61,11 +62,10 @@ class Api::ProductsController < ApplicationController
       #updates and saves produt information
       @product.name = params[:name] || @product.name
       @product.price = params[:price] || @product.price
-      @product.image_url = params[:image_url] ||  @product.image_url
       @product.description = params[:description] || @product.description
-      @product.save
+      
 
-      if prodcut.save # happy path
+      if @prodcut.save # happy path
         render "show.json.jbuilder"
       else # sad path
         render json: { errors: @product.errors.full_messages }, status: :unprocessable_entity
