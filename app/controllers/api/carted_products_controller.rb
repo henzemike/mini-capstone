@@ -20,7 +20,12 @@ class Api::CartedProductsController < ApplicationController
       else
         render json: {errors: cartedproduct.errors.full_messages}, status: :bad_request
       end
-
-
   end
+
+   def destroy
+    @carted_product = CartedProduct.find(params[:id])
+    @carted_product.update(status: "destroyed")
+    render json: {message: "destroyed carted product"}
+  end
+  
 end
