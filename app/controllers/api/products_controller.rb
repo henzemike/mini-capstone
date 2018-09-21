@@ -10,10 +10,15 @@ class Api::ProductsController < ApplicationController
         @products = Product.where("name LIKE ?", "%#{params[:name]}%")
       end
 
-      if params[:price_sort]
-        @products = @products.order(price: :asc)
-      else 
-        @products = @products.order(id: :asc)
+      # if params[:price_sort]
+      #   @products = @products.order(price: :asc)
+      # else 
+      #   @products = @products.order(id: :asc)
+      # end
+
+      if params[:category]
+        category = Category.find_by(name: params[:category])
+        @products = category.products
       end
 
       render "index.json.jbuilder"
@@ -65,7 +70,7 @@ class Api::ProductsController < ApplicationController
       @product.description = params[:description] || @product.description
       
 
-      if @prodcut.save # happy path
+      if @product.save # happy path
         render "show.json.jbuilder"
       else # sad path
         render json: { errors: @product.errors.full_messages }, status: :unprocessable_entity

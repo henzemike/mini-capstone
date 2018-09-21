@@ -3,11 +3,14 @@ class Product < ApplicationRecord
   # def supplier 
   #   Supplier.find_by(id: Supplier_id)
   # end
-  has_many :category_poducts 
+  has_many :carted_products
+  has_many :orders, through: :carted_products
+  has_many :category_products 
+  has_many :categories, through: :category_products
+
+
   belongs_to :Supplier # return a supplier hash
   has_many :images
-  has_many :orders 
-
   validates :name, length: { maximum: 40 }
   validates :name, uniqueness: true
   validates :name, presence: true

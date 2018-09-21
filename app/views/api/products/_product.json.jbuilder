@@ -8,6 +8,8 @@ json.tax product.tax
 json.total product.total
 json.supplier product.Supplier.name
 json.images product.images
+json.categories product.categories
+
 
 
 json.formatted do

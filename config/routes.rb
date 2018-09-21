@@ -39,6 +39,9 @@ Rails.application.routes.draw do
     # url selector method
     get "/product_select/:id" => "products#select_product_method"
 
+    get "/carted_products" => "carted_products#index"
+    post "/carted_products" => "carted_products#create"
+
   end
 
 end
