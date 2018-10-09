@@ -1,3 +1,7 @@
+User.create!([
+  {name: "dave", email: "dave@gmail.com", password_digest: "$2a$10$HXr1a/bCCt68PqkNPBiWf.hfFJlxMVs2PhtIhUd1QVDJWkZJAmy.q", admin: false},
+  {name: "Mike", email: "mike@gmail.com", password_digest: "$2a$10$U7FwryiEs1EdGKWICmzwjOm7Knd2z0fGc7KSsrXCTD78TVsCLmn72", admin: true}
+])
 Order.create!([
   {user_id: 2, subtotal: "12.0", tax: "1.08", total: "13.08"},
   {user_id: 2, subtotal: "186.0", tax: "16.74", total: "202.74"},
@@ -5,11 +9,6 @@ Order.create!([
   {user_id: 2, subtotal: "0.0", tax: "0.0", total: "0.0"},
   {user_id: 2, subtotal: "0.0", tax: "0.0", total: "0.0"},
   {user_id: 2, subtotal: "0.0", tax: "0.0", total: "0.0"}
-])
-CartedProduct.create!([
-  {user_id: 2, product_id: 1, quantity: 3, status: "purchased", order_id: 2},
-  {user_id: 2, product_id: 2, quantity: 1, status: "purchased", order_id: 2},
-  {user_id: 2, product_id: 1, quantity: 3, status: "destroyed", order_id: nil}
 ])
 Supplier.create!([
   {name: "Fitness Equipment", email: "fe@gmail.com", phone_number: "352-5680"},
@@ -30,6 +29,11 @@ Product.create!([
   {name: "Wrist Straps", price: "12.0", description: "straps used for heavy weight lifting", Supplier_id: 1},
   {name: "Beats Studio 3 Wireless", price: "350.0", description: "Introducing the Beats Studio3 Wireless, featuring Pure Adaptive Noise Canceling (Pure ANC) and the Apple W1 chip.", Supplier_id: 2}
 ])
+CartedProduct.create!([
+  {user_id: 2, product_id: 1, quantity: 3, status: "purchased", order_id: 2},
+  {user_id: 2, product_id: 2, quantity: 1, status: "purchased", order_id: 2},
+  {user_id: 2, product_id: 1, quantity: 3, status: "destroyed", order_id: nil}
+])
 Category.create!([
   {name: "Exercise Tools"},
   {name: "Exercise Options"}
@@ -46,8 +50,4 @@ Image.create!([
   {photo: "https://images-na.ssl-images-amazon.com/images/I/51W3YqceAWL.jpg", product_id: 1},
   {photo: "https://www.skullcandy.com/shop/headphones/bluetooth-headphones/crusher-wireless", product_id: 2},
   {photo: "https://assets.adidas.com/images/w_600,f_auto,q_auto/7b44b6fb32774deeab2fa82600dc9278_9366/Power_Perfect_3_Shoes_Black_BB6363_01_standard.jpg", product_id: 3}
-])
-User.create!([
-  {name: "dave", email: "dave@gmail.com", password_digest: "$2a$10$HXr1a/bCCt68PqkNPBiWf.hfFJlxMVs2PhtIhUd1QVDJWkZJAmy.q", admin: false},
-  {name: "Mike", email: "mike@gmail.com", password_digest: "$2a$10$U7FwryiEs1EdGKWICmzwjOm7Knd2z0fGc7KSsrXCTD78TVsCLmn72", admin: true}
 ])
