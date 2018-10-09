@@ -22,10 +22,10 @@ class Api::CartedProductsController < ApplicationController
       end
   end
 
-   def destroy
+  def destroy
     @carted_product = CartedProduct.find(params[:id])
     @carted_product.update(status: "destroyed")
     render json: {message: "destroyed carted product"}
   end
-  
+
 end

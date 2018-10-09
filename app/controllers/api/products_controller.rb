@@ -49,10 +49,11 @@ class Api::ProductsController < ApplicationController
       @product = Product.create(
         name: params[:name],
         price: params[:price],
-        description: params[:description]
+        description: params[:description],
+        Supplier_id: params[:supplier_id]
       )
 
-      if @prodcut.save # happy path
+      if @product.save # happy path
         render "show.json.jbuilder"
       else # sad path
         render json: { errors: @product.errors.full_messages }, status: :unprocessable_entity

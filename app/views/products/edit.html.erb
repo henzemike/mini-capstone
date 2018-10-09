@@ -1,0 +1,32 @@
+<h1>Edit Product</h1>
+
+<form action="/products/<%= @product.id %>" method="post">
+
+  <!-- allows us to send a hidden patch request in the server instead of a post -->
+<input type="hidden" name="_method" value="patch" />
+
+  <div>
+    Name: <input type="text" name="name" value="<%= @product.name %>">
+  </div>
+
+   <div>
+    Price: <input type="text" name="price" value="<%= @product.price %>">
+  </div>
+
+   <div>
+    Description: <input type="text" name="description" value="<%= @product.description %>">
+  </div>
+
+  <select name="Supplier_id">
+    <% @suppliers.each do |supplier|%>
+      <option value="<% supplier.id %> "><%= supplier.name%></option>
+    <%end%>
+  </select>
+
+  <input type="submit" value="Edit Product">
+</form><br>
+
+<!-- has nothing to do with the form can be put on the index page -->
+<div>
+  <button><a href="/products/<%= @product.id %>" data-method="delete">Delete Product</a></button>
+</div>
