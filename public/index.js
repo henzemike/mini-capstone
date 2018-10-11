@@ -11,7 +11,7 @@ var productRow = document.querySelector(".row");
 // productRow.appendChild(templateCard.content.cloneNode(true));
 
 
-axios.get("http://localhost:3000/api/products").then(function(response) {
+axios.get("api/products").then(function(response) {
   var products = response.data;
   // var image = products[0]["images"]["photo"]; fix images to show parsing
   // console.log(image);
