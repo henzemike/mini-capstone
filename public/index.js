@@ -13,14 +13,13 @@ var productRow = document.querySelector(".row");
 
 axios.get("api/products").then(function(response) {
   var products = response.data;
-  // var image = products[0]["images"]["photo"]; fix images to show parsing
-  // console.log(image);
+
   console.log(products);
 
   products.forEach(function(product) {
     var productCopy = templateCard.content.cloneNode(true);
 
-    //productCopy.querySelector(".card-img-top").src = product.image;
+    productCopy.querySelector(".card-img-top").src = product.images[0].photo;
     productCopy.querySelector(".card-title").innerText = product.name;
     productCopy.querySelector(".card-text").innerText = product.description;
 
